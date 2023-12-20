@@ -119,3 +119,87 @@ h1{
     color: white; /* Couleur du texte */
     font-weight: bold; /* Texte en gras */
 }
+
+/* HEADER*/
+
+header {
+    background-color: #232323;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.conteneur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gauche {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+}
+
+.titre-logo {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.milieu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.milieu a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 100px;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.droite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.droite a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.name{
+    font-size: 18px;
+    margin: 10px;
+}
+
+.logout-btn {
+    background-color: #a84e4e;
+    color: #adadad;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-btn a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.milieu a:hover{
+    text-decoration: none;
+    color: #bababa;
+    background-color: #3498db;
+}
