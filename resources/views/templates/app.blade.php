@@ -8,25 +8,44 @@
     @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-<header>Ma super application</header>
-<nav>
-    <a href="{{route('index')}}">Accueil</a>
-    <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
+<header>
+    <nav>
+        <div class="conteneur">
+            <div class="gauche">
+                <img class="logo" src="{{Vite::asset('resources/images/pantheon_logo_blanc.png')}}" alt="" srcset="">
+                <a href="{{route('index')}}" class="logo-link"> </a>
 
-@auth
-        {{Auth::user()->name}}
-        <a href="{{route("logout")}}"
-           onclick="document.getElementById('logout').submit(); return false;">Logout</a>
-        <form id="logout" action="{{route("logout")}}" method="post">
-            @csrf
-        </form>
-    @else
-        <a href="{{route("login")}}">Login</a>
-        <a href="{{route("register")}}">Register</a>
-    @endauth
-</nav>
+                    <p class="titre-logo">le panthéon</p>
 
+            </div>
+
+            <div class="milieu">
+                <a href="#">histoires</a>
+                <a href="#">mes histoires</a>
+            </div>
+
+            <div class="droite">
+                <a href="#"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
+
+                @auth
+                    <p class="name">Votre nom:{{Auth::user()->name}}</p>
+                    <button class="logout-btn"><a href="{{route("logout")}}"
+                       onclick="document.getElementById('logout').submit(); return false;">Logout</a></button>
+                    <form id="logout" action="{{route("logout")}}" method="post">
+                        @csrf
+                    </form>
+                @else
+                    <a class="name" href="{{route("login")}}">Login</a>
+                    <a class="name" href="{{route("register")}}">Register</a>
+                @endauth
+            </div>
+        </div>
+
+
+
+
+    </nav>
+</header>
 <main>
     @yield("content")
 </main>
