@@ -6,7 +6,12 @@
 <section id="histoire_show">
     @if($histoire->active || auth()->id() == $histoire->user_id)
         <div id="head_histoire">
-            <img src="{{Storage::url($histoire->photo)}}" alt="Image {{$histoire->titre}}">
+            @if(str_starts_with($histoire->photo, 'https:') || str_starts_with($histoire->photo, 'http'))
+                <img src="{{$histoire->photo}}" alt="Image {{$histoire->titre}}">
+            @else
+                <img src="{{Storage::url($histoire->photo)}}" alt="Image {{$histoire->titre}}">
+            @endif
+
             <h1>{{$histoire->titre}}</h1>
         </div>
 
@@ -15,7 +20,7 @@
             <p>{{$histoire->pitch}}</p>
         </div>
 
-        <p2>Histoire écrite par : {{$histoire->user->name}}</p>
+        <p>Histoire écrite par : {{$histoire->user->name}}</p>
 
         <p>Cette histoire a été terminée {{$histoire->terminees()->count()}} fois</p>
 
