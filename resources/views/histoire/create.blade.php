@@ -19,17 +19,17 @@
         <form action="{{route('histoire.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
-            <label for="titre">Titre : <input type="text" name="titre"></label>
-            <label for="pitch">Résumé : <input type="text" name="pitch"></label>
-            <label for="photo">Image : <input type="file" name="photo"></label>
+            <label for="titre">Titre : <input type="text" name="titre" value="{{old('titre')}}"></label>
+            <label for="pitch">Résumé : <input type="text" name="pitch" value="{{old('pitch')}}"></label>
+            <label for="photo">Image : <input type="file" name="photo" value="{{old('photo')}}"></label>
             <label for="genre">Genre :
                 <select name="genre">
                     @foreach($genres as $genre)
-                        <option value="{{$genre->id}}">{{$genre->label}}</option>
+                        <option value="{{$genre->id}}" @if($genre->id == old('genre')) selected @endif>{{$genre->label}}</option>
                     @endforeach
                 </select>
             </label>
-            <label for="active">Histoire active : <input type="checkbox" name="active"></label>
+            <label for="active">Histoire active : <input type="checkbox" name="active" value="{{old('active')}}"></label>
             <input type="submit" value="Enregistrer">
         </form>
     @else

@@ -71,6 +71,38 @@ class HistoireController extends Controller
         return view('histoire.edit', ["histoire" => $histoire, "genres" => Genre::all()]);
     }
 
+    public function update(Request $request, int $id) : RedirectResponse
+    {
+        $validated = $request->validate([
+            'titre' => 'required|max:255',
+            'pitch' => 'required',
+            'genre' => 'required|exists:genres,id',
+            'photo' => 'nullable',
+            'active' => 'boolean',
+        ]);
+
+        $histoire = Histoire::find($id);
+
+        if ($request->hasFile('photo') && $request->file('photo')->isValid())
+        {
+            $file = $request->file('photo');
+            Storage::delete($histoire->photo);
+            $customFileName = $validated['titre'] . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('images', $customFileName, 'public');
+            $histoire->photo = $path;
+        }
+
+        $histoire->titre = $validated['titre'];
+        $histoire->pitch = $validated['pitch'];
+        $histoire->genre_id = $validated['genre'];
+        $histoire->active = $validated['active'];
+        $histoire->save();
+
+        return redirect()->route('histoire.show', ['histoire' => $histoire])
+            ->with('type', 'primary')
+            ->with('msg', 'Histoire modifiée avec succès');
+    }
+
     public function destroy(int $id) : RedirectResponse
     {
         $histoire = Histoire::find($id);

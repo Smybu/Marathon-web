@@ -22,7 +22,7 @@
 
         <p>Histoire écrite par : {{$histoire->user->name}}</p>
         @if(Auth::check() && auth()->id() == $histoire->user_id)
-            <a href="#">Modifier</a>
+            <a href="{{route('histoire.edit', ['histoire' => $histoire->id])}}">Modifier</a>
             <form action="{{route('histoire.destroy', ['histoire' => $histoire->id])}}" method="POST">
                 @csrf
                 @method('DELETE')
