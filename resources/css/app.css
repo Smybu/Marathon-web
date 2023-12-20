@@ -1,38 +1,22 @@
+/* Font pour les textes: Playfair Display */
+/* Font pour les titres: Rufina */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Rufina&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+    font-family: Carlito, sans-serif;
 }
+/* font texte */
 
 :root {
     --fond: #232323;
+    --texte: #e2e2e2;
+    --beige: #f8d28d;
+    --jaune: #daa520;
+    --orange: #de7030;
 }
-
-/*
-html {
-    position: relative;
-    min-height: 100%;
-}
-body {
-    margin-bottom: 30px;
-}
-
-main {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    background-color: #f5f5f5;
-}
-*/
 
 /* Style page 404 Error */
 .Error{
@@ -43,6 +27,7 @@ footer {
 
 h1{
     margin: 0;
+    font-family: 'Rufina', serif;
 }
 
 .titre-404{
@@ -64,27 +49,7 @@ h1{
     justify-content: space-between;
     align-items: center;
 }
-/*
 
-.images-container-404 img {
-    width: 1200px;
-    margin-top: -200px;
-
-}
-
-.hercule{
-    padding-right: 200px;
-}
-.hermes{
-    padding-right:1600px;
-}
-.images-container-404 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-    margin-top: -50px;
-}*/
 .images-container-404{
     display: flex;
     justify-content: space-between;
@@ -106,26 +71,26 @@ h1{
     align-items: center;
 }
 
-/* Styles pour le bouton */
 .button-style {
     margin-top: 32px;
-    padding: 10px 20px; /* Ajoute de l'espace autour du bouton */
-    border: 2px solid #3498db; /* Bordure solide avec une couleur */
-    background-color: #3498db; /* Couleur de fond du bouton */
-    text-align: center; /* Centre le texte horizontalement */
+    padding: 10px 20px;
+    /*border: 2px solid #3498db;*/
+    color: var(--fond);
+    background-color: var(--jaune);
+    text-align: center;
 }
 
 .button-style a {
-    text-decoration: none; /* Enlève le soulignement par défaut du lien */
-    color: white; /* Couleur du texte */
-    font-weight: bold; /* Texte en gras */
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 /* HEADER*/
 
 header {
-    background-color: #232323;
-    color: white;
+    background-color: var(--fond);
+    color: var(--texte);
     padding: 20px;
     text-align: center;
     font-size: 35px;
@@ -144,13 +109,9 @@ header {
 }
 
 .logo {
-    width: 100px;
+    width: 400px;
 }
 
-.titre-logo {
-    margin-left: 20px;
-    margin-top: 30px;
-}
 .milieu{
     display: flex;
     justify-content: center;
@@ -159,6 +120,8 @@ header {
 }
 
 .milieu a{
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
     text-decoration: none;
     color: white;
     font-size: 20px;
@@ -186,8 +149,8 @@ header {
 }
 
 .logout-btn {
-    background-color: #a84e4e;
-    color: #adadad;
+    background-color: var(--orange);
+    color: var(--texte);
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -201,19 +164,19 @@ header {
 
 .milieu a:hover{
     text-decoration: none;
-    color: #bababa;
-    background-color: #3498db;
+    color: var(--fond);
+    background-color: var(--orange);
 }
 
 /* FOOTER */
 
 .container-footer{
-    background-color: #333;
-    color: #fff;
+    background-color: var(--fond);
+    color: var(--texte);
     display: flex;
     justify-content: center;
     padding: 10px;
-    height: 180px;
+    height: 200px;
     width: 100%;
     position: absolute;
     bottom: 0;
@@ -231,21 +194,28 @@ header {
     text-align: center;
     margin: auto;
     text-decoration: none;
-    color: #fff;
+    color: var(--texte)
 }
 
 .titre-footer{
-    font-size: 40px;
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
+    font-size: 25px;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
-
-
-.texte-footer{
+texte-footer{
     font-size: 20px;
+    font-family: 'playfair-display', serif;
 }
 
+.texte-footer, .texte-footer a {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--texte);
+}
 .logos-rs{
     display: flex;
     justify-content: center;
@@ -254,6 +224,12 @@ header {
 }
 
 .logos-rs > a > i{
+    margin: 0 10px;
     font-size: 40px;
-    color: #fff;
+    color: var(--texte);
+}
+
+.logos-rs > a > i:hover{
+    font-size: 40px;
+    color: var(--orange);
 }
