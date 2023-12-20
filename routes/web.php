@@ -29,3 +29,8 @@ Route::get('/test-vite', function () {
 Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
 
 Route::resource('histoire', HistoireController::class);
+
+Route::fallback(function (){
+    return view('errors.404');
+});
+

@@ -1,9 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fond: #232323;
+}
+
+/*
 html {
     position: relative;
     min-height: 100%;
 }
 body {
-    /* Margin bottom by footer height */
     margin-bottom: 30px;
 }
 
@@ -18,8 +28,94 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-
-    /* Set the fixed height of the footer here */
     height: 30px;
     background-color: #f5f5f5;
+}
+*/
+
+/* Style page 404 Error */
+.Error{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--fond);
+}
+
+h1{
+    margin: 0;
+}
+
+.titre-404{
+    color: white;
+    font-size: 300px;
+    z-index: -1;
+}
+
+.centrer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.images-container-404 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+/*
+
+.images-container-404 img {
+    width: 1200px;
+    margin-top: -200px;
+
+}
+
+.hercule{
+    padding-right: 200px;
+}
+.hermes{
+    padding-right:1600px;
+}
+.images-container-404 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    margin-top: -50px;
+}*/
+.images-container-404{
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+
+}
+.hermes{
+    margin-top: -685px;
+    margin-left: -1700px;
+}
+.hercule{
+    padding-right: -500px;
+    margin-top: -350px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles pour le bouton */
+.button-style {
+    margin-top: 32px;
+    padding: 10px 20px; /* Ajoute de l'espace autour du bouton */
+    border: 2px solid #3498db; /* Bordure solide avec une couleur */
+    background-color: #3498db; /* Couleur de fond du bouton */
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+.button-style a {
+    text-decoration: none; /* Enlève le soulignement par défaut du lien */
+    color: white; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
 }
