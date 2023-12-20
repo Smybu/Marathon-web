@@ -6,6 +6,7 @@ use App\Models\Genre;
 use App\Models\Histoire;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -62,5 +63,21 @@ class HistoireController extends Controller
             ->with('type', 'primary')
             ->with('msg', 'Histoire ajoutée avec succès');
 
+    }
+
+    public function edit(int $id) : View
+    {
+        $histoire = Histoire::find($id);
+        return view('histoire.edit', ["histoire" => $histoire, "genres" => Genre::all()]);
+    }
+
+    public function destroy(int $id) : RedirectResponse
+    {
+        $histoire = Histoire::find($id);
+        Storage::delete($histoire->photo);
+        $histoire->delete();
+        return redirect()->route('histoire.index')
+            ->with('type', 'primary')
+            ->with('msg', 'Histoire supprimée avec succès');
     }
 }

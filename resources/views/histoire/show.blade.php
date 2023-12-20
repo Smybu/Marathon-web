@@ -21,6 +21,14 @@
         </div>
 
         <p>Histoire écrite par : {{$histoire->user->name}}</p>
+        @if(Auth::check() && auth()->id() == $histoire->user_id)
+            <a href="#">Modifier</a>
+            <form action="{{route('histoire.destroy', ['histoire' => $histoire->id])}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Supprimer" onclick="return confirm('Êtes vous sûr de vouloir supprimer l\'histoire ? Cette action est irréversible.')">
+            </form>
+        @endif
 
         <p>Cette histoire a été terminée {{$histoire->terminees()->count()}} fois</p>
 
