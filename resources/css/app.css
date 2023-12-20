@@ -86,6 +86,13 @@ h1{
     font-weight: bold;
 }
 
+/*ALL*/
+#all {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 /* HEADER*/
 
 header {
@@ -113,8 +120,9 @@ header {
 }
 
 .milieu{
+    flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
 }
@@ -125,7 +133,6 @@ header {
     text-decoration: none;
     color: white;
     font-size: 20px;
-    margin-left: 100px;
     padding: 8px 16px;
     border-radius: 5px;
 }
@@ -168,17 +175,20 @@ header {
     background-color: var(--orange);
 }
 
-/* FOOTER */
+/*MAIN*/
+main {
+    flex: 1;
+}
 
+/* FOOTER */
 .container-footer{
     background-color: var(--fond);
     color: var(--texte);
     display: flex;
     justify-content: center;
     padding: 10px;
-    height: 200px;
+    height: 250px;
     width: 100%;
-    position: absolute;
     bottom: 0;
 }
 

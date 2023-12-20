@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{isset($title) ? $title : "Page en cours"}}</title>
+    <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font de texte -->
@@ -18,16 +18,17 @@
     @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+<section id="all">
 <header>
     <nav>
         <div class="conteneur">
             <div class="gauche">
-                <img class="logo" src="{{Vite::asset('resources/images/Titre_et_logo.png')}}" alt="" srcset="">
-                <a href="{{route('index')}}" class="logo-link"> </a>
+                <a href="{{route('index')}}" class="logo-link"><img class="logo" src="{{Vite::asset('resources/images/Titre_et_logo.png')}}" alt="" srcset=""></a>
             </div>
 
             <div class="milieu">
-                <a href="#">histoires</a>
+                @if(Auth::check())<a href="{{route('histoire.create')}}">Créer une<br/>histoire</a>@endif
+                <a href="{{route('histoire.index')}}">histoires</a>
                 <a href="#">mes histoires</a>
             </div>
 
@@ -35,7 +36,7 @@
                 <a href="#"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
 
                 @auth
-                    <p class="name">Votre nom:{{Auth::user()->name}}</p>
+                    <p class="name">{{Auth::user()->name}}</p>
                     <button class="logout-btn"><a href="{{route("logout")}}"
                        onclick="document.getElementById('logout').submit(); return false;">Logout</a></button>
                     <form id="logout" action="{{route("logout")}}" method="post">
@@ -90,5 +91,6 @@
     </div>
 
 </footer>
+</section>
 </body>
 </html>
