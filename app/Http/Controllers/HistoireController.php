@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Histoire;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class HistoireController extends Controller
@@ -12,5 +16,100 @@ class HistoireController extends Controller
     {
         $histoire = Histoire::find($id);
         return view('histoire.show', ["histoire" => $histoire]);
+    }
+
+    public function create() : View
+    {
+        return view('histoire.create', ["genres" => Genre::all()]);
+    }
+
+    public function store(Request $request) : RedirectResponse
+    {
+        $validated = $request->validate([
+            'titre' => 'required|max:255',
+            'pitch' => 'required',
+            'genre' => 'required|exists:genres,id',
+            'photo' => 'required',
+            'actif' => 'boolean',
+        ]);
+
+        // Récupérez le fichier à partir de la requête
+        $file = $request->file('photo');
+
+        // Créez le nom de fichier en utilisant le titre et l'extension d'origine
+        $customFileName = $validated['titre'] . '.' . $file->getClientOriginalExtension();
+
+        // Stockez le fichier dans le dossier 'images' du disque 'public' avec le nom généré
+        $path = $file->storeAs('images', $customFileName, 'public');
+
+        // Maintenant, $path contient le chemin du fichier stocké
+
+        // Ajoutez le chemin du fichier à vos données validées
+        $validated['photo_link'] = $path;
+
+        // Si la case à cocher "actif" n'est pas cochée, définissez sa valeur sur false par défaut
+        $validated['active'] = $request->has('active');
+
+        $newHistoire = Histoire::create([
+            'titre' => $validated['titre'],
+            'pitch' => $validated['pitch'],
+            'genre_id' => $validated['genre'],
+            'photo' => $validated['photo_link'],
+            'active' => $validated['active'],
+            'user_id' => auth()->id(),
+        ]);
+
+        return redirect()->route('histoire.show', ['histoire' => $newHistoire])
+            ->with('type', 'primary')
+            ->with('msg', 'Histoire ajoutée avec succès');
+
+    }
+
+    public function edit(int $id) : View
+    {
+        $histoire = Histoire::find($id);
+        return view('histoire.edit', ["histoire" => $histoire, "genres" => Genre::all()]);
+    }
+
+    public function update(Request $request, int $id) : RedirectResponse
+    {
+        $validated = $request->validate([
+            'titre' => 'required|max:255',
+            'pitch' => 'required',
+            'genre' => 'required|exists:genres,id',
+            'photo' => 'nullable',
+            'active' => 'boolean',
+        ]);
+
+        $histoire = Histoire::find($id);
+
+        if ($request->hasFile('photo') && $request->file('photo')->isValid())
+        {
+            $file = $request->file('photo');
+            Storage::delete($histoire->photo);
+            $customFileName = $validated['titre'] . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('images', $customFileName, 'public');
+            $histoire->photo = $path;
+        }
+
+        $histoire->titre = $validated['titre'];
+        $histoire->pitch = $validated['pitch'];
+        $histoire->genre_id = $validated['genre'];
+        $histoire->active = $validated['active'];
+        $histoire->save();
+
+        return redirect()->route('histoire.show', ['histoire' => $histoire])
+            ->with('type', 'primary')
+            ->with('msg', 'Histoire modifiée avec succès');
+    }
+
+    public function destroy(int $id) : RedirectResponse
+    {
+        $histoire = Histoire::find($id);
+        Storage::delete($histoire->photo);
+        $histoire->delete();
+        return redirect()->route('histoire.index')
+            ->with('type', 'primary')
+            ->with('msg', 'Histoire supprimée avec succès');
     }
 }
