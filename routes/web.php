@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HistoireController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name("index");
+Route::get('/',[WelcomeController::class, 'welcome'])->name("index");
 
 Route::get('/contact', function () {
     return view('contact');
@@ -25,5 +25,7 @@ Route::get('/contact', function () {
 Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
+
+Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
 
 Route::resource('histoire', HistoireController::class);
