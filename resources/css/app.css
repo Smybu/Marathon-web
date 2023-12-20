@@ -205,9 +205,13 @@ header {
     margin-top: 10px;
 }
 
-texte-footer{
+.texte-footer{
     font-size: 20px;
     font-family: 'playfair-display', serif;
+}
+.texte-footer:hover, .texte-footer a:hover{
+    text-decoration: none;
+    color: var(--orange);
 }
 
 .texte-footer, .texte-footer a {
