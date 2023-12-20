@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\HistoireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Route::get('/test-vite', function () {
 })->name("test-vite");
 
 Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
+
+Route::resource('histoire', HistoireController::class);
