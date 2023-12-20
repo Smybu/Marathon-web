@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
 }
 
 :root {
@@ -202,4 +203,57 @@ header {
     text-decoration: none;
     color: #bababa;
     background-color: #3498db;
+}
+
+/* FOOTER */
+
+.container-footer{
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 180px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.box{
+    align-items: center;
+    margin-left: 20px;
+    padding: 0 150px;
+}
+
+.titre-footer, .texte-footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    color: #fff;
+}
+
+.titre-footer{
+    font-size: 40px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+
+.texte-footer{
+    font-size: 20px;
+}
+
+.logos-rs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logos-rs > a > i{
+    font-size: 40px;
+    color: #fff;
 }
