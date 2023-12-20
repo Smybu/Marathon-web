@@ -20,7 +20,7 @@
             <p>{{$histoire->pitch}}</p>
         </div>
 
-        <p2>Histoire écrite par : {{$histoire->user->name}}</p>
+        <p>Histoire écrite par : {{$histoire->user->name}}</p>
 
         <p>Cette histoire a été terminée {{$histoire->terminees()->count()}} fois</p>
 
