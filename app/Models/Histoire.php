@@ -8,12 +8,22 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static find()
+ * @method static create(array $array)
+ * @method static latest()
  */
 class Histoire extends Model
 {
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = [
+        "titre",
+        "pitch",
+        "photo",
+        "active",
+        "user_id",
+        "genre_id",
+    ];
 
     public function user() {
         return $this->belongsTo(User::class);

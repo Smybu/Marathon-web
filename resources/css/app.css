@@ -1,25 +1,239 @@
-html {
-    position: relative;
-    min-height: 100%;
+/* Font pour les textes: Playfair Display */
+/* Font pour les titres: Rufina */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Rufina&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: Carlito, sans-serif;
 }
-body {
-    /* Margin bottom by footer height */
-    margin-bottom: 30px;
+/* font texte */
+
+:root {
+    --fond: #232323;
+    --texte: #e2e2e2;
+    --beige: #f8d28d;
+    --jaune: #daa520;
+    --orange: #de7030;
 }
 
-main {
-    min-height: 80vh;
+/* Style page 404 Error */
+.Error{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--fond);
+}
+
+h1{
+    margin: 0;
+    font-family: 'Rufina', serif;
+}
+
+.titre-404{
+    color: white;
+    font-size: 300px;
+    z-index: -1;
+}
+
+.centrer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.images-container-404 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.images-container-404{
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+
+}
+.hermes{
+    margin-top: -685px;
+    margin-left: -1700px;
+}
+.hercule{
+    padding-right: -500px;
+    margin-top: -350px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-style {
+    margin-top: 32px;
+    padding: 10px 20px;
+    /*border: 2px solid #3498db;*/
+    color: var(--fond);
+    background-color: var(--jaune);
+    text-align: center;
+}
+
+.button-style a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* HEADER*/
+
+header {
+    background-color: var(--fond);
+    color: var(--texte);
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.conteneur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gauche {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-footer {
+.logo {
+    width: 400px;
+}
+
+.milieu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.milieu a{
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    margin-left: 100px;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.droite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.droite a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.name{
+    font-size: 18px;
+    margin: 10px;
+}
+
+.logout-btn {
+    background-color: var(--orange);
+    color: var(--texte);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-btn a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.milieu a:hover{
+    text-decoration: none;
+    color: var(--fond);
+    background-color: var(--orange);
+}
+
+/* FOOTER */
+
+.container-footer{
+    background-color: var(--fond);
+    color: var(--texte);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 200px;
+    width: 100%;
     position: absolute;
     bottom: 0;
-    width: 100%;
+}
 
-    /* Set the fixed height of the footer here */
-    height: 30px;
-    background-color: #f5f5f5;
+.box{
+    align-items: center;
+    margin-left: 20px;
+    padding: 0 150px;
+}
+
+.titre-footer, .texte-footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    color: var(--texte)
+}
+
+.titre-footer{
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.texte-footer{
+    font-size: 20px;
+    font-family: 'playfair-display', serif;
+}
+.texte-footer:hover, .texte-footer a:hover{
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.texte-footer, .texte-footer a {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--texte);
+}
+.logos-rs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logos-rs > a > i{
+    margin: 0 10px;
+    font-size: 40px;
+    color: var(--texte);
+}
+
+.logos-rs > a > i:hover{
+    font-size: 40px;
+    color: var(--orange);
 }
