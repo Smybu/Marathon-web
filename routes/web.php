@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\EquipeController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HistoireController;
@@ -34,3 +35,13 @@ Route::fallback(function (){
     return view('errors.404');
 });
 
+Route::get('chapitres/create',[ChapitreController::class, 'create']);
+
+Route::post('chapitres',[ChapitreController::class, 'store'])->name('chapitre.store');
+
+Route::get('chapitres/create-chapitres/{id}',[ChapitreController::class,'create'])->name('create-chapitre');
+
+
+Route::get('encours/{id}',[HistoireController::class,'encours'])->name('encours');
+
+Route::post('chapitres/lier/{id}', [ChapitreController::class, 'link'])->name('lier');
