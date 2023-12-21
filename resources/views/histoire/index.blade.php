@@ -1,48 +1,45 @@
 @extends('templates.app')
 
 @section('content')
-
-    <div class="titres">
+<section id="histoire_index">
+    <div id="histoire_index_head">
         <h1>Liste des Histoires</h1>
+
+        <form id="form" action="{{route('histoire.index')}}">
+            <select name="g">
+                <option @if($g === 'All') selected="selected" @endif value="All">Toutes les histoires</option>
+                @foreach($genres as $genre)
+                    <option @if($g === $genre) selected="selected" @endif value="{{$genre}}">{{$genre}}</option>
+                @endforeach
+            </select>
+            <input type="submit" value="OK">
+        </form>
     </div>
 
-    <form id="form" action="{{route('histoire.index')}}">
-        <select name="g">
-            <option @if($g === 'All') selected="selected" @endif value="All">Toutes les histoires</option>
-            @foreach($genres as $genre)
-                <option @if($g === $genre) selected="selected" @endif value="{{$genre}}">{{$genre}}</option>
-            @endforeach
-        </select>
-        <input type="submit" value="OK">
-    </form>
-
-
-
-    @if(Auth::check())
-        <h3><a href="#">Créer une histoire</a></h3>
-    @endif
-
-    @if(!empty($histoires))
-        <table>
-            <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Pitch</th>
-
-            </tr>
-            </thead>
-            <tbody>
+    <div id="liste-histoires">
+        @if(!empty($histoires))
             @foreach($histoires as $histoire)
-                <tr>
-                    <td><a href="{{route('histoire.show', ['histoire' => $histoire->id])}}">{{$histoire->titre}}</a></td>
-                    <td>{{$histoire->pitch}}</td>
-                </tr>
+                <div class="histoire">
+                    <a href="{{route('histoire.show', ['histoire' => $histoire->id])}}">
+                        <div class="histoire-logo">
+                            @if(str_starts_with($histoire->photo, 'https:') || str_starts_with($histoire->photo, 'http'))
+                                <img src="{{$histoire->photo}}" alt="Image {{$histoire->titre}}">
+                            @else
+                                <img src="{{Storage::url($histoire->photo)}}" alt="Image {{$histoire->titre}}">
+                            @endif
+                        </div>
+                        <div class="histoire-description">
+                            <h4>{{$histoire->titre}}</h4>
+                            <p>{{$histoire->pitch}}</p>
+                        </div>
+                    </a>
+                </div>
             @endforeach
-            </tbody>
-        </table>
-    @else
-        <h3>Aucune histoire dans la table ...</h3>
-    @endif
+        @else
+            <h3>Aucune histoire dans la table ...</h3>
+        @endif
+    </div>
+
 
     <script>
         function submitForm() {
@@ -56,4 +53,5 @@
 
         }
     </script>
+</section>
 @endsection
