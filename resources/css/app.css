@@ -820,3 +820,44 @@ margin: 25px;
     border-radius: 5px;
 }
 
+/* Profil */
+#profil {
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/Fond_login_register.png");
+}
+
+.main-profil{
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--orange);
+    width: 726px;
+    border-radius: 15px;
+    margin: 25px;
+}
+
+.bio, .histoires, .lecture{
+    margin: 16px;
+    font-size: 18px;
+    font-family: Carlito, sans-serif;
+}
+
+.histoires a{
+    margin: 8px;
+    color: var(--fond);
+    text-decoration: none;
+    border-bottom: 1px solid var(--fond);
+}
+
+.histoires a:hover{
+    background-color: var(--fond);
+    color: var(--texte);
+    border-bottom: 1px solid var(--orange);
+}
