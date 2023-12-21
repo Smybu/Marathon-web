@@ -34,3 +34,6 @@ Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
 
 Route::resource('histoire', HistoireController::class);
 
+Route::post('/add_avis', [HistoireController::class, 'add_avis'])->middleware(['auth'])->name('add_avis');
+
+Route::get('/delete_avis', [HistoireController::class, 'delete_avis'])->middleware(['auth'])->name('delete_avis');
