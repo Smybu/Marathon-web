@@ -78,10 +78,12 @@
                     <li><a href="#" class="texte-footer">Mes histoires</a></li>
                 </div>
 
+                @if(!Auth::check())
                 <div class="modif-flex">
                     <li><a href="{{route("login")}}" class="texte-footer">Login</a></li>
                     <li><a href="{{route("register")}}" class="texte-footer">Register</a></li>
                 </div>
+                @endif
 
             </ul>
         </div>
