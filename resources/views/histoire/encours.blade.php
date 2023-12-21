@@ -3,7 +3,7 @@
 @section('content')
     <h3>Création de {{$histoire->titre}}</h3>
 
-    <div style="display: flex">
+
    <div  style="width:45%;"> @include("histoire.createChapitre", ['id' => $histoire->id])
 
     <ul>

@@ -14,9 +14,7 @@
             @if(Auth::user()->mesHistoires->isNotEmpty())
                 <h4>Vos histoires ({{Auth::user()->mesHistoires->count()}})</h4>
                 @foreach (Auth::user()->mesHistoires as $mesHistoires)
-
-                    <p>{{$mesHistoires->titre}}</p>
-
+                    <a href="{{route('histoire.show', ['histoire' => $mesHistoires->id])}}">{{$mesHistoires->titre}}</a>
                 @endforeach
             @else
                 <p>Vous n'avez écrit aucune histoire</p>
