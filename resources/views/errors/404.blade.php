@@ -30,7 +30,7 @@
 
     <div class="center">
         <button class="button-style">
-            <a class="retour-accueil" href="#">Retourner à l'accueil</a>
+            <a class="retour-accueil" href="{{ route('index') }}">Retourner à l'accueil</a>
         </button>
     </div>
 
