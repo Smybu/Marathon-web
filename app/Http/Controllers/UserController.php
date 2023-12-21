@@ -17,4 +17,10 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'Avatar mis à jour avec succès.');
     }
+
+    public function index(int $id){
+        $user = User::find($id);
+        return view('user', ["user" => $user]);
+    }
 }
+

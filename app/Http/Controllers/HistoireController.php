@@ -113,7 +113,7 @@ class HistoireController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('create-chapitre', ['id' => $newHistoire->id])
+        return redirect()->route('encours', ['id' => $newHistoire->id])
             ->with('type', 'primary')
             ->with('msg', 'Histoire ajoutée avec succès');
 
@@ -154,12 +154,10 @@ class HistoireController extends Controller
         $histoire->titre = $validated['titre'];
         $histoire->pitch = $validated['pitch'];
         $histoire->genre_id = $validated['genre'];
-        $histoire->active = $validated['active'];
+        $histoire->active = $request->has('active');
         $histoire->save();
 
-        return redirect()->route('histoire.show', ['histoire' => $histoire])
-            ->with('type', 'primary')
-            ->with('msg', 'Histoire modifiée avec succès');
+        return redirect()->route('encours', ['id' => $histoire->id]);
     }
 
     public function destroy(int $id) : RedirectResponse
@@ -186,6 +184,17 @@ class HistoireController extends Controller
         $histoire = Histoire::find($request->histoire_id);
         $avis_id = $request->avis_id;
         $histoire->delete_avis($avis_id);
+        return redirect()->route('histoire.show', ['histoire' => $histoire->id]);
+    }
+
+    public function retour_histoire(Request $request): RedirectResponse
+    {
+        $histoire = Histoire::find($request->id);
+        $user_id = auth()->id();
+        if ($histoire->terminees()->where('user_id', $user_id)->count() > 0)
+            $histoire->terminees()->where('user_id', $user_id)->increment('nombre');
+        else
+            $histoire->terminees()->attach($user_id, ['nombre' => 1]);
         return redirect()->route('histoire.show', ['histoire' => $histoire->id]);
     }
 }

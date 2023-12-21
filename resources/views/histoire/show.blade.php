@@ -20,7 +20,7 @@
                 <p>{{$histoire->pitch}}</p>
             </div>
 
-            <p>Histoire écrite par : {{$histoire->user->name}}</p>
+            <p>Histoire écrite par : <a href="{{route('user', ['id' => $histoire->user->id])}}">{{$histoire->user->name}}</a></p>
             @if(Auth::check() && auth()->id() == $histoire->user_id)
                 <a href="{{route('histoire.edit', ['histoire' => $histoire->id])}}">Modifier</a>
                 <form action="{{route('histoire.destroy', ['histoire' => $histoire->id])}}" method="POST">
@@ -32,7 +32,11 @@
 
             <p>Cette histoire a été terminée {{$histoire->terminees()->count()}} fois</p>
 
-            <a href="#">Commencer l'aventure</a>
+            @if(Auth::check())
+                <a href="{{route('lecture', ['id' => $histoire->premier()->id])}}">Commencer l'aventure</a>
+            @else
+                <a href="{{route('login')}}">Connecte toi pour lire cette histoire</a>
+            @endif
 
             <div id="avis">
                 <h3>Avis :</h3>
