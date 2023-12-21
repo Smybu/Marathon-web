@@ -1,37 +1,22 @@
+/* Font pour les textes: Playfair Display */
+/* Font pour les titres: Rufina */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Rufina&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    list-style: none;
+    font-family: Carlito, sans-serif;
 }
+/* font texte */
 
 :root {
     --fond: #232323;
+    --texte: #e2e2e2;
+    --beige: #f8d28d;
+    --jaune: #daa520;
+    --orange: #de7030;
 }
-
-/*
-html {
-    position: relative;
-    min-height: 100%;
-}
-body {
-    margin-bottom: 30px;
-}
-
-main {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    background-color: #f5f5f5;
-}
-*/
 
 /* Style page 404 Error */
 .Error{
@@ -42,6 +27,7 @@ footer {
 
 h1{
     margin: 0;
+    font-family: 'Rufina', serif;
 }
 
 .titre-404{
@@ -63,27 +49,7 @@ h1{
     justify-content: space-between;
     align-items: center;
 }
-/*
 
-.images-container-404 img {
-    width: 1200px;
-    margin-top: -200px;
-
-}
-
-.hercule{
-    padding-right: 200px;
-}
-.hermes{
-    padding-right:1600px;
-}
-.images-container-404 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-    margin-top: -50px;
-}*/
 .images-container-404{
     display: flex;
     justify-content: space-between;
@@ -105,17 +71,358 @@ h1{
     align-items: center;
 }
 
-/* Styles pour le bouton */
 .button-style {
     margin-top: 32px;
-    padding: 10px 20px; /* Ajoute de l'espace autour du bouton */
-    border: 2px solid #3498db; /* Bordure solide avec une couleur */
-    background-color: #3498db; /* Couleur de fond du bouton */
-    text-align: center; /* Centre le texte horizontalement */
+    padding: 10px 20px;
+    /*border: 2px solid #3498db;*/
+    color: var(--fond);
+    background-color: var(--jaune);
+    text-align: center;
 }
 
 .button-style a {
-    text-decoration: none; /* Enlève le soulignement par défaut du lien */
-    color: white; /* Couleur du texte */
-    font-weight: bold; /* Texte en gras */
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/*ALL*/
+#all {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER*/
+
+header {
+    background-color: var(--fond);
+    color: var(--texte);
+    padding: 20px;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.conteneur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gauche {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 400px;
+}
+
+.milieu{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.milieu a{
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px 16px;
+    border-radius: 5px;
+}
+
+.droite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.droite a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.name{
+    font-size: 18px;
+    margin: 10px;
+}
+
+.logout-btn {
+    background-color: var(--orange);
+    color: var(--texte);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-btn a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.milieu a:hover{
+    text-decoration: none;
+    color: var(--fond);
+    background-color: var(--orange);
+}
+
+/*MAIN*/
+main {
+    flex: 1;
+}
+
+/* FOOTER */
+.container-footer{
+    background-color: var(--fond);
+    color: var(--texte);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 250px;
+    width: 100%;
+    bottom: 0;
+}
+
+.box{
+    align-items: center;
+    margin-left: 20px;
+    padding: 0 150px;
+}
+
+.titre-footer, .texte-footer{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    text-decoration: none;
+    color: var(--texte)
+}
+
+.titre-footer{
+    text-transform: uppercase;
+    font-family: 'Rufina', serif;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.texte-footer{
+    font-size: 20px;
+    font-family: 'playfair-display', serif;
+}
+.texte-footer:hover, .texte-footer a:hover{
+    text-decoration: none;
+    color: var(--orange);
+}
+
+.texte-footer, .texte-footer a {
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--texte);
+}
+.logos-rs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logos-rs > a > i{
+    margin: 0 10px;
+    font-size: 40px;
+    color: var(--texte);
+}
+
+.logos-rs > a > i:hover{
+    font-size: 40px;
+    color: var(--orange);
+}
+
+/* PAGES DE REGISTER ET LOGIN */
+.section-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.formulaire-logins{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--fond);
+    color: var(--texte);
+    text-align: center;
+}
+
+/*histoire.index*/
+#histoire_index {
+    background-color: var(--jaune);
+    height: 100%;
+}
+
+#histoire_index #histoire_index_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#histoire_index #histoire_index_head form select {
+    width: 200px;
+}
+
+#histoire_index #histoire_index_head form input {
+    padding: 4px;
+}
+
+.section-register h1{
+    font-size: 50px;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display', sans-serif;
+    border-bottom: 2px solid var(--orange);
+}
+
+.section-register input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aff-row{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.aff-row label i{
+    padding: 10px;
+}
+
+.aff-row label i:hover{
+    padding: 10px;
+    background-color: var(--orange);
+    border-radius: 10px;
+    color: var(--fond);
+}
+
+.register-send{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    background-color: var(--fond);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.register-send:hover{
+    text-decoration: none;
+    color: var(--fond);
+    background-color: var(--orange);
+    cursor: pointer;
+}
+
+.ask{
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.ask a{
+    text-decoration: none;
+    color: var(--orange);
+    border-bottom: 1px solid var(--texte);
+}
+
+.ask a:hover{
+    border-bottom: 1px solid var(--orange);
+}
+
+#liste-histoires{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+/*histoire.index*/
+.histoire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 400px;
+    margin: 20px;
+    background-color: var(--fond);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.histoire:hover {
+    box-shadow: 0 0 20px var(--fond);
+    transform: scale(1.05) translateZ(20px);
+}
+
+.histoire a {
+    text-decoration: none;
+}
+
+.histoire .histoire-logo {
+    width: 250px;
+    height: 200px;
+}
+
+.histoire .histoire-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.histoire .histoire-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 200px;
+    padding: 10px;
+}
+
+.histoire h4 {
+    text-align: center;
+    margin: 16px 16px 8px 16px;
+    color: var(--jaune);
+}
+
+.histoire p {
+    text-align: justify;
+    margin: 8px 16px 16px 16px;
+    max-height: 100px;
+    color: var(--texte);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

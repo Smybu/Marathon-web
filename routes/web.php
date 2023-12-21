@@ -27,13 +27,13 @@ Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
 
-Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
-
-Route::resource('histoire', HistoireController::class);
-
 Route::fallback(function (){
     return view('errors.404');
 });
+
+Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
+
+Route::resource('histoire', HistoireController::class);
 
 Route::get('chapitres/create',[ChapitreController::class, 'create']);
 
@@ -41,7 +41,10 @@ Route::post('chapitres',[ChapitreController::class, 'store'])->name('chapitre.st
 
 Route::get('chapitres/create-chapitres/{id}',[ChapitreController::class,'create'])->name('create-chapitre');
 
-
 Route::get('encours/{id}',[HistoireController::class,'encours'])->name('encours');
 
 Route::post('chapitres/lier/{id}', [ChapitreController::class, 'link'])->name('lier');
+
+Route::post('/add_avis', [HistoireController::class, 'add_avis'])->middleware(['auth'])->name('add_avis');
+
+Route::get('/delete_avis', [HistoireController::class, 'delete_avis'])->middleware(['auth'])->name('delete_avis');
