@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Chapitre;
 use App\Models\Histoire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
@@ -24,6 +25,7 @@ class ChapitreController extends Controller {
                 'titre' => 'required',
                 'titrecourt' => 'required',
                 'texte' => 'required',
+                'photo' => 'nullable',
             ]);
 
             if ($validator->fails()) {
@@ -46,13 +48,25 @@ class ChapitreController extends Controller {
             $chapitre->texte = $request->texte;
             $chapitre->histoire_id = $request->histoire_id;
 
-            if (!empty($request->media)) $chapitre->media = $request->media;
+            if ($request->hasFile('photo'))
+            {
+                $file = $request->file('photo');
+
+                // Créez le nom de fichier en utilisant le titre et l'extension d'origine
+                $customFileName = $validator->validated()['titre'] . '.' . $file->getClientOriginalExtension();
+
+                // Stockez le fichier dans le dossier 'images' du disque 'public' avec le nom généré
+                $path = $file->storeAs('images', $customFileName, 'public');
+                $chapitre->media = $path;
+            }
+
             if (!empty($request->question)) $chapitre->question = $request->question;
 
             if (isset($request->premier)){
                 $chapitre->premier = true;
             }
-            else {$chapitre->premier = false;
+            else {
+                $chapitre->premier = false;
             }
             // insertion de l'enregistrement dans la base de données
             $chapitre->save();

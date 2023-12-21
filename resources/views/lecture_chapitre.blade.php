@@ -6,7 +6,9 @@
 <section id="lecture_chapitre">
     <h1>{{$chapitre->titre}}</h1>
 
-    <img src="{{Vite::asset($chapitre->media)}}" alt="Image {{$chapitre->titrecourt}}">
+    @if($chapitre->media != null)
+        <img src="{{Storage::url($chapitre->media)}}" alt="Image {{$chapitre->titrecourt}}">
+    @endif
 
     <p>{{$chapitre->texte}}</p>
     <p>{{$chapitre->question}}</p>
