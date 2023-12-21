@@ -113,7 +113,7 @@ class HistoireController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('create-chapitre', ['histoire' => $newHistoire])
+        return redirect()->route('create-chapitre', ['id' => $newHistoire->id])
             ->with('type', 'primary')
             ->with('msg', 'Histoire ajoutée avec succès');
 
