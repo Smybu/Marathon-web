@@ -27,6 +27,10 @@ Route::get('/mentions', function () {
     return view('mentions');
 })->name("mentions");
 
+Route::get('/whoweare', function () {
+    return view('whoweare');
+})->name("whoweare");
+
 Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
