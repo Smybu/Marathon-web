@@ -248,6 +248,30 @@ main {
     color: var(--orange);
 }
 
+/* PAGES DE REGISTER ET LOGIN */
+.section-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+.formulaire-logins{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--fond);
+    color: var(--texte);
+    text-align: center;
+}
+
 /*histoire.index*/
 #histoire_index {
     background-color: var(--jaune);
@@ -270,6 +294,71 @@ main {
     padding: 4px;
 }
 
+.section-register h1{
+    font-size: 50px;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display', sans-serif;
+    border-bottom: 2px solid var(--orange);
+}
+
+.section-register input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.aff-row{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.aff-row label i{
+    padding: 10px;
+}
+
+.aff-row label i:hover{
+    padding: 10px;
+    background-color: var(--orange);
+    border-radius: 10px;
+    color: var(--fond);
+}
+
+.register-send{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    background-color: var(--fond);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.register-send:hover{
+    text-decoration: none;
+    color: var(--fond);
+    background-color: var(--orange);
+    cursor: pointer;
+}
+
+.ask{
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.ask a{
+    text-decoration: none;
+    color: var(--orange);
+    border-bottom: 1px solid var(--texte);
+}
+
+.ask a:hover{
+    border-bottom: 1px solid var(--orange);
+}
+
 #liste-histoires{
     display: flex;
     flex-wrap: wrap;
@@ -278,6 +367,7 @@ main {
     margin: 20px;
 }
 
+/*histoire.index*/
 .histoire {
     display: flex;
     justify-content: center;
@@ -336,4 +426,3 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
