@@ -426,3 +426,59 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/*histoire.create*/
+#histoire_create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../images/Fond_login_register.png);
+}
+
+#histoire_create h1 {
+    margin: 30px 0;
+
+}
+
+#histoire_create form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 30%;
+    margin-bottom: 30px;
+    background-color: var(--fond);
+    color: var(--texte);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#histoire_create form * {
+    margin: 10px
+}
+
+#histoire_create form label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#histoire_create form label input,  #histoire_create form label select {
+    flex: 1;
+    border-radius: 10px;
+}
+
+#histoire_create form #submit_button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    color: var(--orange);
+    padding: 5px;
+}
+
+#histoire_create form #submit_button:hover {
+    background-color: var(--orange);
+    color: var(--fond);
+
+}
