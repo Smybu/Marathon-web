@@ -17,7 +17,6 @@
                         <h3><a href="#">{{$histoire['titre']}}</a></h3>
                         <h4>{{$histoire['pitch']}}</h4>
                     @endforeach
-
                 @endif
             </div>
         </div>
