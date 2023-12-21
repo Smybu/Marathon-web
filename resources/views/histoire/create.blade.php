@@ -5,7 +5,7 @@
 @section('content')
 <section id="histoire_create">
     @if(Auth::check())
-        <h1>Création d'une histoire</h1>
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -19,6 +19,7 @@
         <form action="{{route('histoire.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
+            <h1>Création d'une histoire</h1>
             <label for="titre">Titre : <input type="text" name="titre" value="{{old('titre')}}"></label>
             <label for="pitch">Résumé : <input type="text" name="pitch" value="{{old('pitch')}}"></label>
             <label for="photo">Image : <input type="file" name="photo" value="{{old('photo')}}"></label>

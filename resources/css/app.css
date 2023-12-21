@@ -499,7 +499,8 @@ p.copyright {
 
 #histoire_create h1 {
     margin: 30px 0;
-
+    color: var(--beige);
+    text-align: center;
 }
 
 #histoire_create form {
@@ -507,7 +508,7 @@ p.copyright {
     flex-direction: column;
     flex: 1;
     width: 30%;
-    margin-bottom: 30px;
+    margin: 30px 0;
     background-color: var(--fond);
     color: var(--texte);
     border-radius: 10px;
