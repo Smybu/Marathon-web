@@ -587,3 +587,118 @@ p.copyright {
 }
 
 /* Page encours */
+section.container-encours{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.box-encours{
+    background-color: var(--jaune);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px 16px 0 0;
+}
+
+.box-encours h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', sans-serif;
+    border-bottom: 2px solid var(--fond);
+}
+
+/* section createChapitre */
+.section-createChapitre{
+    padding: 8px;
+    background-color: var(--beige);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input-enLigne-createChapitre{
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: var(--fond);
+    text-align: center;
+}
+
+.input-enLigne-createChapitre label{
+    font-family: Carlito, sans-serif;
+    padding: 8px;
+}
+.button-createChapitre{
+    margin: 8px;
+    padding: 10px 20px;
+    border: none;
+    color: var(--orange);
+    background-color: var(--fond);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.button-createChapitre:hover{
+    text-decoration: none;
+    color: var(--fond);
+    background-color: var(--orange);
+    cursor: pointer;
+}
+
+
+.section-liaison{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--jaune);
+    width: 726px;
+    border-radius: 0 0 16px 16px;
+}
+
+.container-liaisons{
+    background-color: var(--beige);
+    width: 540px;
+    border-radius: 16px;
+    margin: 20px;
+}
+
+.container-liaisons h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', sans-serif;
+    border-bottom: 2px solid var(--fond);
+}
+
+.laisons-memeLigne{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.laisons-memeLigne p{
+    margin: 10px;
+}
+select[name="destination"], select[name="origine"] {
+    width: 20%; /* Ajuste la largeur du select */
+    /* Ajoutez d'autres styles selon vos besoins */
+}
+
+.input-enLigne-createChapitre input{
+    width: auto;
+    border-radius: 5px;
+}
+
+input.input-encours{
+    border-radius: 5px;
+}
