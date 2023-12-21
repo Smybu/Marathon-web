@@ -427,6 +427,9 @@ main {
     text-overflow: ellipsis;
 }
 
+/* PAGES DE MENTIONS LEGALES */
+
+
 .mention-container {
     display: flex;
     flex-direction: column;
@@ -459,5 +462,35 @@ main {
 }
 
 .mention-fond{
+    background-image: url('../images/Fond_login_register.png');
+}
+
+/* PAGES DE QUI SOMMES NOUS (WHOWEARE) */
+
+
+
+.whoweare-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1em auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--fond);
+    color: var(--texte);
+}
+
+.whoweare-container h1{
+    text-align: center;
+    padding: 1em;
+    text-decoration: underline;
+}
+
+.whoweare-container p {
+    padding: 0.5em;
+
+}
+
+.whoweare-fond{
     background-image: url('../images/Fond_login_register.png');
 }
