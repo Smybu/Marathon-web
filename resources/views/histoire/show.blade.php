@@ -3,9 +3,10 @@
 @section('title', $histoire->titre)
 
 @section('content')
-    <section id="histoire_show">
+    <section class="container-histoire-show">
+        <div class="histoire-show">
         @if($histoire->active || auth()->id() == $histoire->user_id)
-            <div id="head_histoire">
+            <div class="head_histoire">
                 @if(str_starts_with($histoire->photo, 'https:') || str_starts_with($histoire->photo, 'http'))
                     <img src="{{$histoire->photo}}" alt="Image {{$histoire->titre}}">
                 @else
@@ -15,18 +16,18 @@
                 <h1>{{$histoire->titre}}</h1>
             </div>
 
-            <div id="resume">
-                <h3>Résumé :</h3>
+            <div class="resume">
+                <h1>Résumé :</h1>
                 <p>{{$histoire->pitch}}</p>
-            </div>
+
 
             <p>Histoire écrite par : <a href="{{route('user', ['id' => $histoire->user->id])}}">{{$histoire->user->name}}</a></p>
             @if(Auth::check() && auth()->id() == $histoire->user_id)
-                <a href="{{route('histoire.edit', ['histoire' => $histoire->id])}}">Modifier</a>
+                <button class="bouton-histoire-show"><a href="{{route('histoire.edit', ['histoire' => $histoire->id])}}">Modifier</a></button>
                 <form action="{{route('histoire.destroy', ['histoire' => $histoire->id])}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <input type="submit" value="Supprimer" onclick="return confirm('Êtes vous sûr de vouloir supprimer l\'histoire ? Cette action est irréversible.')">
+                    <input class="input-histoire-show" type="submit" value="Supprimer" onclick="return confirm('Êtes vous sûr de vouloir supprimer l\'histoire ? Cette action est irréversible.')">
                 </form>
             @endif
 
@@ -41,11 +42,11 @@
             <div id="avis">
                 <h3>Avis :</h3>
                 @foreach($histoire->avis as $avis)
-                    <div class="comment">
+                    <div class="resume">
                         <p>{{$avis->contenu}}</p>
                         <p>Ajouté le : {{$avis->created_at}}</p>
                         @if(Auth::check() && ($avis->user_id == auth()->id()))
-                            <a href="{{route('delete_avis', ['histoire_id' => $histoire->id, 'avis_id' => $avis->id])}}">Supprimer</a>
+                            <button class="bouton-histoire-show"><a href="{{route('delete_avis', ['histoire_id' => $histoire->id, 'avis_id' => $avis->id])}}">Supprimer</a></button>
                         @endif
                     </div>
                 @endforeach
@@ -57,9 +58,12 @@
         @if(Auth::check())
             <form action="{{route('add_avis', ['id' => $histoire->id])}}" method="post">
                 @csrf
-                <label for="contenu">Contenu : <input type="text" name="contenu" id="contenu"></label>
-                <input type="submit" value="Commenter">
+                <div class="align-elements-histoire-show">
+                    <label for="contenu">Contenu : <input type="text" name="contenu" id="contenu"></label>
+                    <input class="commenter" type="submit" value="Commenter">
+                </div>
             </form>
         @endif
+        </div>
     </section>
 @endsection
