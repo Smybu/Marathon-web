@@ -29,11 +29,10 @@
             <div class="milieu">
                 @if(Auth::check())<a href="{{route('histoire.create')}}">Créer une<br/>histoire</a>@endif
                 <a href="{{route('histoire.index')}}">histoires</a>
-                <a href="#">mes histoires</a>
             </div>
 
             <div class="droite">
-                <a href="#"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
+                <a href="{{route('profil')}}"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
 
                 @auth
                     <p class="name">{{Auth::user()->name}}</p>
@@ -68,14 +67,23 @@
                 <li><a href="{{Route('mentions')}}" class="texte-footer">Mentions légales</a></li>
             </ul>
         </div>
-        <div class="box">
+        <div class="box-2">
             <h1 class="titre-footer">plan du site</h1>
             <ul>
                 <!-- Ajouter les routes-->
-                <li><a href="#" class="texte-footer">Accueil</a></li>
-                <li><a href="#" class="texte-footer">Histoires</a></li>
-                <li><a href="#" class="texte-footer">Mes histoires</a></li>
-                <li class="texte-footer"><a href="#">Login</a>  /  <a href="#">Register</a></li>
+                <div class="modif-flex">
+                    <li><a href="{{route('index')}}" class="texte-footer">Accueil</a></li>
+                    <li><a href="{{route('histoire.index')}}" class="texte-footer">Histoires</a></li>
+                    <li><a href="#" class="texte-footer">Mes histoires</a></li>
+                </div>
+
+                @if(!Auth::check())
+                <div class="modif-flex">
+                    <li><a href="{{route("login")}}" class="texte-footer">Login</a></li>
+                    <li><a href="{{route("register")}}" class="texte-footer">Register</a></li>
+                </div>
+                @endif
+
             </ul>
         </div>
         <div class="box">
@@ -88,6 +96,7 @@
                 </div>
             </ul>
         </div>
+        <p class="copyright">&copy; Tous droits réservés</p>
     </div>
 
 </footer>

@@ -2,7 +2,7 @@
 
 @section('content')
     <section id="accueil">
-        <div style="display: flex;align-items: center; justify-content: center">
+        <div class="container-accueil">
             <div class="main-title">
                 <h1>Bienvenue dans le Panthéon</h1>
             </div>
@@ -14,10 +14,11 @@
                 @if(!empty($histoires))
 
                     @foreach($histoires as $histoire)
-                        <h3><a href="#">{{$histoire['titre']}}</a></h3>
-                        <h4>{{$histoire['pitch']}}</h4>
+                        <div class="accueil-box">
+                            <h3><a href="#">{{$histoire['titre']}}</a></h3>
+                            <p>{{$histoire['pitch']}}</p>
+                        </div>
                     @endforeach
-
                 @endif
             </div>
         </div>
