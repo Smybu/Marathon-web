@@ -33,7 +33,7 @@
 
                 @endforeach
             @else
-                <p>Vous n'avez pas pas terminée de lectures</p>
+                <p>Vous n'avez pas terminé de lectures</p>
             @endif
         </div>
     </section>

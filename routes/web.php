@@ -39,8 +39,6 @@ Route::fallback(function (){
     return view('errors.404');
 });
 
-Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
-
 Route::resource('histoire', HistoireController::class);
 
 Route::get('chapitres/create',[ChapitreController::class, 'create']);
