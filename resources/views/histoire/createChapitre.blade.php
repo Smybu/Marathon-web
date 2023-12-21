@@ -1,5 +1,6 @@
-<form action="{{route('chapitre.store')}}" method="POST">
-    {!! csrf_field() !!}
+<form action="{{route('chapitre.store')}}" method="POST" enctype="multipart/form-data">
+    @method('POST')
+    @csrf
     <input type="hidden" name="histoire_id" value="{{$id}}">
     <div class="text-center" style="margin-top: 2rem">
         <h3>Création d'un chapitre</h3>
@@ -25,9 +26,8 @@
     </div>
     <div>
         <label for="media"><strong>Media</strong></label>
-        <input type="text" name="media" id="media"
-               value="{{ old('media') }}"
-               placeholder="Média lié au chapitre">
+        <input type="file" name="photo" id="media"
+               placeholder="Photo lié au chapitre">
     </div>
     <div>
         <label for="question"><strong>Question</strong></label>
@@ -35,7 +35,7 @@
                value="{{ old('question') }}"
                placeholder="Question liée au chapitre">
     </div>
-    @if(!isset($affichePremier))
+    @if(\App\Models\Histoire::find($id)->premier() == null)
         <div>
             <label for="premier"><strong>Premier chapitre?</strong></label>
             <input type="checkbox" name="premier" checked id="premier">

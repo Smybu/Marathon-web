@@ -32,7 +32,11 @@
 
             <p>Cette histoire a été terminée {{$histoire->terminees()->count()}} fois</p>
 
-            <a href="#">Commencer l'aventure</a>
+            @if(Auth::check())
+                <a href="{{route('lecture', ['id' => $histoire->premier()->id])}}">Commencer l'aventure</a>
+            @else
+                <a href="{{route('login')}}">Connecte toi pour lire cette histoire</a>
+            @endif
 
             <div id="avis">
                 <h3>Avis :</h3>
