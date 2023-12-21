@@ -8,7 +8,7 @@
             <h2>Voici le profil de : {{$user->name}}</h2>
         </div>
         <div class="bio">
-            <p>Email : {{Auth::user()->email}}</p>
+            <p>Email : {{$user->email}}</p>
         </div>
         <div class="histoires">
             @if($user->mesHistoires->isNotEmpty())
