@@ -29,11 +29,10 @@
             <div class="milieu">
                 @if(Auth::check())<a href="{{route('histoire.create')}}">Créer une<br/>histoire</a>@endif
                 <a href="{{route('histoire.index')}}">histoires</a>
-                <a href="#">mes histoires</a>
             </div>
 
             <div class="droite">
-                <a href="#"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
+                <a href="{{route('profil')}}"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
 
                 @auth
                     <p class="name">{{Auth::user()->name}}</p>
@@ -65,7 +64,7 @@
             <ul>
                 <!-- Ajouter les routes-->
                 <li><a href="#" class="texte-footer">Qui sommes nous ?</a></li>
-                <li><a href="#" class="texte-footer">Mentions légales</a></li>
+                <li><a href="{{Route('mentions')}}" class="texte-footer">Mentions légales</a></li>
             </ul>
         </div>
         <div class="box-2">

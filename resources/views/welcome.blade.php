@@ -19,7 +19,6 @@
                             <p>{{$histoire['pitch']}}</p>
                         </div>
                     @endforeach
-
                 @endif
             </div>
         </div>

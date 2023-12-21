@@ -13,11 +13,11 @@ class User extends Authenticatable {
 
 
     public function mesHistoires() {
-        return $this->hasMany(Histoire::class);
+        return $this->hasMany(Histoire::class, 'user_id');
     }
 
     public function avis() {
-        return $this->hasMany(Avis::class);
+        return $this->hasMany(Avis::class , 'user_id', 'histoire_id');
     }
 
     public function terminees() {
