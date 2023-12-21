@@ -12,7 +12,10 @@
 <nav>
     <a href="{{route('index')}}">Accueil</a>
     <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
+    @if(auth()->check())
+        <a href="{{route('histoire.create')}}">Create histoire</a><br />
+    @endif
+        <a href="#">Contact</a>
 
 @auth
         {{Auth::user()->name}}
