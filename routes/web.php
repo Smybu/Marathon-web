@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\EquipeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\HistoireController;
 use Illuminate\Support\Facades\Route;
@@ -62,3 +63,5 @@ Route::post('chapitres/lier/{id}', [ChapitreController::class, 'link'])->name('l
 Route::post('/add_avis', [HistoireController::class, 'add_avis'])->middleware(['auth'])->name('add_avis');
 
 Route::get('/delete_avis', [HistoireController::class, 'delete_avis'])->middleware(['auth'])->name('delete_avis');
+
+Route::get('/user/{id}', [UserController::class, 'index'])->name("user");
