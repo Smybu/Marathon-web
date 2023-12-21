@@ -27,11 +27,17 @@ Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
 
+
+Route::get('/profil', function () {
+    $title = "Profil";
+    return view('profil',['title' => $title]);
+})->middleware(['auth'])->name('profil');
+
+Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
+
 Route::fallback(function (){
     return view('errors.404');
 });
-
-Route::get('/equipe', [EquipeController::class, 'index'])->name("equipe");
 
 Route::resource('histoire', HistoireController::class);
 
