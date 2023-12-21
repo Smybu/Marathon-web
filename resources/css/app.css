@@ -187,9 +187,10 @@ main {
     display: flex;
     justify-content: center;
     padding: 10px;
-    height: 250px;
+    height: 150px;
     width: 100%;
     bottom: 0;
+    position: relative;
 }
 
 .box{
@@ -218,7 +219,15 @@ main {
 .texte-footer{
     font-size: 20px;
     font-family: 'playfair-display', serif;
+    padding-left: 20px;
 }
+
+.modif-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .texte-footer:hover, .texte-footer a:hover{
     text-decoration: none;
     color: var(--orange);
@@ -247,9 +256,18 @@ main {
     font-size: 40px;
     color: var(--orange);
 }
-
+p.copyright {
+    top: 130px;
+    font-size: 18px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--texte);
+}
 /* PAGES DE REGISTER ET LOGIN */
 .section-register{
+    background-image: url(../images/Fond_login_register.png);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,8 +281,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
-    margin: auto;
+    width: 25%;
     padding: 20px;
     border-radius: 10px;
     background-color: var(--fond);
