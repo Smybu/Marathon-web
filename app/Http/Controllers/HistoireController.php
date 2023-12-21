@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapitre;
 use App\Models\Genre;
 use App\Models\Histoire;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -110,10 +113,15 @@ class HistoireController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        return redirect()->route('histoire.show', ['histoire' => $newHistoire])
+        return redirect()->route('create-chapitre', ['histoire' => $newHistoire])
             ->with('type', 'primary')
             ->with('msg', 'Histoire ajoutée avec succès');
 
+    }
+
+    public function encours($id) {
+        $histoire = Histoire::findOrFail($id);
+        return view("histoire.encours", compact('histoire'));
     }
 
     public function edit(int $id) : View
@@ -180,6 +188,7 @@ class HistoireController extends Controller
         $histoire->delete_avis($avis_id);
         return redirect()->route('histoire.show', ['histoire' => $histoire->id]);
     }
-
-
 }
+
+
+
