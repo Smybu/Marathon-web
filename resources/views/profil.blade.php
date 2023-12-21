@@ -9,6 +9,17 @@
         <div class="bio">
             <p>Nom : {{Auth::user()->name}}</p>
             <p>Email : {{Auth::user()->email}}</p>
+
+            <!-- Dans votre formulaire de mise à jour du profil -->
+            <form action="{{ route('update-avatar') }}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <!-- Autres champs du formulaire -->
+                <label for="avatar">Avatar:</label>
+                <input type="file" name="avatar" accept="image/*">
+
+                <button type="submit">Mettre à jour l'avatar</button>
+            </form>
         </div>
         <div class="histoires">
             @if(Auth::user()->mesHistoires->isNotEmpty())

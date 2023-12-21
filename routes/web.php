@@ -36,7 +36,6 @@ Route::get('/test-vite', function () {
     return view('test-vite');
 })->name("test-vite");
 
-
 Route::get('/profil', function () {
     $title = "Profil";
     return view('profil',['title' => $title]);
@@ -64,10 +63,10 @@ Route::post('/add_avis', [HistoireController::class, 'add_avis'])->middleware(['
 
 Route::get('/delete_avis', [HistoireController::class, 'delete_avis'])->middleware(['auth'])->name('delete_avis');
 
+Route::post('/update-avatar', [UserController::class, 'updateAvatar'])->name('update-avatar');
 
 Route::get('/{histoire}/fin', [HistoireController::class, 'retour_histoire'])->name('fin_histoire');
 
 Route::get('lecture/{id}', [ChapitreController::class, 'lecture'])->middleware(['auth'])->name('lecture');
 
 Route::get('/user/{id}', [UserController::class, 'index'])->name("user");
-
