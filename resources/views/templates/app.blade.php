@@ -32,8 +32,13 @@
             </div>
 
             <div class="droite">
-                <a href="{{route('profil')}}"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
-
+                @if(Auth::check())
+                    @if(Auth::user()->avatar)
+                        <a href="{{route('profil')}}"><img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="" srcset=""></a>
+                    @else
+                        <a href="{{route('profil')}}"><img src="{{Vite::asset('resources/images/icon_Login_Register.png')}}" alt="" srcset=""></a>
+                    @endif
+                @endif
                 @auth
                     <p class="name">{{Auth::user()->name}}</p>
                     <button class="logout-btn"><a href="{{route("logout")}}"
@@ -63,7 +68,7 @@
             <h1 class="titre-footer">A propos</h1>
             <ul>
                 <!-- Ajouter les routes-->
-                <li><a href="#" class="texte-footer">Qui sommes nous ?</a></li>
+                <li><a href="{{Route('whoweare')}}" class="texte-footer">Qui sommes nous ?</a></li>
                 <li><a href="{{Route('mentions')}}" class="texte-footer">Mentions légales</a></li>
             </ul>
         </div>
