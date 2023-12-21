@@ -150,6 +150,13 @@ header {
     font-size: 20px;
 }
 
+.droite img {
+    width : 80px;
+    height : 75px;
+    border-radius: 50%;
+    border: 2px var(--jaune) solid ;
+}
+
 .name{
     font-size: 18px;
     margin: 10px;
@@ -551,6 +558,7 @@ p.copyright {
 
 }
 
+/* PAGES DE MENTIONS LEGALES */
 .mention-container {
     display: flex;
     flex-direction: column;
@@ -860,4 +868,40 @@ margin: 25px;
     background-color: var(--fond);
     color: var(--texte);
     border-bottom: 1px solid var(--orange);
+}
+
+/* PAGES DE QUI SOMMES NOUS (WHOWEARE) */
+.whoweare-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1em auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--fond);
+    color: var(--texte);
+}
+
+.whoweare-container h1{
+    text-align: center;
+    padding: 1em;
+    text-decoration: underline;
+}
+
+.whoweare-container p {
+    padding: 0.5em;
+    text-align: center;
+    font-family: 'Rufina', serif;
+    padding-top: 2em;
+
+}
+
+.whoweare-fond{
+    background-image: url('../images/Fond_login_register.png');
+}
+
+.whoweare-container img{
+    display: flex;
+    max-width: 100%;
+
 }
