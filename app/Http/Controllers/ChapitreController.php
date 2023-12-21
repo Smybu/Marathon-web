@@ -85,4 +85,10 @@ class ChapitreController extends Controller {
             ->with('type', 'success')
             ->with('text', 'Lien ajouté avec succès');
     }
+
+    public function lecture(int $id) : View
+    {
+        $chapitre = Chapitre::find($id);
+        return view('lecture_chapitre', ['chapitre' => $chapitre]);
+    }
 }
