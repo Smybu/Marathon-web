@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chapitre;
+use App\Models\Histoire;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\View\View;
 
 class ChapitreController extends Controller {
 
-    public function create($id)
+    public function create($id) : View
     {
-        return view('histoire.createChapitre', ['id' => $id]);
+        $monHistoire = Histoire::find($id);
+        $chap = $monHistoire->chapitres()->where('premier', 1)->first();
+        return view('histoire.createChapitre', ['id' => $id, 'affichePremier' => $chap]);
     }
 
     public function store(Request $request)

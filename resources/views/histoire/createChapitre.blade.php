@@ -35,10 +35,12 @@
                value="{{ old('question') }}"
                placeholder="Question liée au chapitre">
     </div>
-    <div>
-        <label for="premier"><strong>Premier chapitre?</strong></label>
-        <input type="checkbox" name="premier" checked id="premier">
-    </div>
+    @if(!isset($affichePremier))
+        <div>
+            <label for="premier"><strong>Premier chapitre?</strong></label>
+            <input type="checkbox" name="premier" checked id="premier">
+        </div>
+    @endif
     <div>
         <button class="btn btn-success" type="submit">Valide</button>
     </div>
