@@ -531,15 +531,21 @@ p.copyright {
     border-radius: 10px;
 }
 
-#histoire_create form #submit_button, #histoire_edit form #submit_button {
+#histoire_create form #submit_button, #histoire_edit form #submit_button, #histoire_edit form a {
     background-color: rgba(255, 255, 255, 0);
     border: 2px solid var(--orange);
     border-radius: 5px;
     color: var(--orange);
     padding: 5px;
+    text-decoration: none;
 }
 
-#histoire_create form #submit_button:hover, #histoire_edit form #submit_button:hover {
+#histoire_edit form div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#histoire_create form #submit_button:hover, #histoire_edit form #submit_button:hover, #histoire_edit form a:hover {
     background-color: var(--orange);
     color: var(--fond);
 

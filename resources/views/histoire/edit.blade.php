@@ -5,8 +5,8 @@
 @section('content')
 <section id="histoire_edit">
     @if(Auth::check() && auth()->id() == $histoire->user_id)
-        <h1>Édition de {{$histoire->titre}}</h1>
         <form action="{{route('histoire.update', ['histoire' => $histoire->id])}}" method="POST" enctype="multipart/form-data">
+            <h1>Édition de {{$histoire->titre}}</h1>
             @csrf
             @method('PUT')
             <label for="titre">Titre : <input type="text" name="titre" value="{{$histoire->titre}}"> </label>
