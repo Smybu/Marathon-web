@@ -30,7 +30,7 @@
                 </select>
             </label>
             <label for="active">Histoire active : <input type="checkbox" name="active" value="{{old('active')}}"></label>
-            <input type="submit" value="Enregistrer">
+            <input type="submit" id="submit_button" value="Enregistrer">
         </form>
     @else
         <h1>Vous devez être connecté pour créer une histoire</h1>
