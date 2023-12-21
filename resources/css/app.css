@@ -426,3 +426,38 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.mention-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1em auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--fond);
+    color: var(--texte);
+}
+
+.mention-container h1{
+    text-align: center;
+    padding: 1em;
+    text-decoration: underline;
+}
+
+.mention-container p {
+    padding: 0.5em;
+
+}
+
+.mention-container h3{
+    padding: 1em;
+    text-decoration: underline;
+}
+
+.mention-container a{
+    color: #daa520;
+}
+
+.mention-fond{
+    background-image: url('../images/Fond_login_register.png');
+}

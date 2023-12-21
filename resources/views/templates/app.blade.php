@@ -64,7 +64,7 @@
             <ul>
                 <!-- Ajouter les routes-->
                 <li><a href="#" class="texte-footer">Qui sommes nous ?</a></li>
-                <li><a href="#" class="texte-footer">Mentions légales</a></li>
+                <li><a href="{{Route('mentions')}}" class="texte-footer">Mentions légales</a></li>
             </ul>
         </div>
         <div class="box">
