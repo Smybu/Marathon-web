@@ -163,4 +163,23 @@ class HistoireController extends Controller
             ->with('type', 'primary')
             ->with('msg', 'Histoire supprimée avec succès');
     }
+
+    public function add_avis(Request $request): RedirectResponse
+    {
+        $histoire = Histoire::find($request->id);
+        $contenu = $request->input('contenu');
+        $user_id = auth()->id();
+        $histoire->add_avis($contenu, $user_id, $histoire->id);
+        return redirect()->route('histoire.show', ['histoire' => $histoire->id]);
+    }
+
+    public function delete_avis(Request $request): RedirectResponse
+    {
+        $histoire = Histoire::find($request->histoire_id);
+        $avis_id = $request->avis_id;
+        $histoire->delete_avis($avis_id);
+        return redirect()->route('histoire.show', ['histoire' => $histoire->id]);
+    }
+
+
 }
