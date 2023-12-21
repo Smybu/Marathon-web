@@ -187,9 +187,10 @@ main {
     display: flex;
     justify-content: center;
     padding: 10px;
-    height: 250px;
+    height: 150px;
     width: 100%;
     bottom: 0;
+    position: relative;
 }
 
 .box{
@@ -218,7 +219,15 @@ main {
 .texte-footer{
     font-size: 20px;
     font-family: 'playfair-display', serif;
+    padding-left: 20px;
 }
+
+.modif-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .texte-footer:hover, .texte-footer a:hover{
     text-decoration: none;
     color: var(--orange);
@@ -247,9 +256,18 @@ main {
     font-size: 40px;
     color: var(--orange);
 }
-
+p.copyright {
+    top: 130px;
+    font-size: 18px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--texte);
+}
 /* PAGES DE REGISTER ET LOGIN */
 .section-register{
+    background-image: url(../images/Fond_login_register.png);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -263,8 +281,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 50%;
-    margin: auto;
+    width: 25%;
     padding: 20px;
     border-radius: 10px;
     background-color: var(--fond);
@@ -425,4 +442,140 @@ main {
     color: var(--texte);
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* ACCUEIL */
+#accueil {
+    height: 100%;
+    background-color: var(--jaune);
+}
+
+.container-accueil {
+    font-family: Rufina, serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.accueil-box{
+    background-color: var(--fond);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    border-radius: 16px;
+}
+
+.accueil-box a{
+    text-transform: uppercase;
+    font-family: Rufina, serif;
+    display: flex;
+    margin-top: 16px;
+    font-size: 24px;
+    text-decoration: none;
+    color: var(--beige);
+}
+
+.accueil-box p{
+    width: 60%;
+    font-size: 18px;
+
+    text-align: center;
+    margin: 10px;
+    color: var(--texte);
+}
+
+/*histoire.create*/
+#histoire_create {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../images/Fond_login_register.png);
+}
+
+#histoire_create h1 {
+    margin: 30px 0;
+    color: var(--beige);
+    text-align: center;
+}
+
+#histoire_create form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 30%;
+    margin: 30px 0;
+    background-color: var(--fond);
+    color: var(--texte);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#histoire_create form * {
+    margin: 10px
+}
+
+#histoire_create form label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#histoire_create form label input,  #histoire_create form label select {
+    flex: 1;
+    border-radius: 10px;
+}
+
+#histoire_create form #submit_button {
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid var(--orange);
+    border-radius: 5px;
+    color: var(--orange);
+    padding: 5px;
+}
+
+#histoire_create form #submit_button:hover {
+    background-color: var(--orange);
+    color: var(--fond);
+
+}
+
+.mention-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 1em auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--fond);
+    color: var(--texte);
+}
+
+.mention-container h1{
+    text-align: center;
+    padding: 1em;
+    text-decoration: underline;
+}
+
+.mention-container p {
+    padding: 0.5em;
+
+}
+
+.mention-container h3{
+    padding: 1em;
+    text-decoration: underline;
+}
+
+.mention-container a{
+    color: #daa520;
+}
+
+.mention-fond{
+    background-image: url('../images/Fond_login_register.png');
 }
